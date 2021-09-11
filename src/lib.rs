@@ -39,6 +39,7 @@ pub enum HResolution {
     _14,
 }
 
+/// Registers 
 struct Register;
 
 impl Register {
@@ -52,6 +53,9 @@ impl Register {
     const DEVICE_ID: u8 = 0xFF;
 }
 
+/// configuration masks
+/// used when setting device configuration : 
+/// device.set_config(0x00|ConfigBitFlags::T_MODE|ConfigBitFlags::MODE| ConfigBitFlags::H_MODE8 & !ConfigBitFlags::H_MODE9)
 struct ConfigBitFlags;
 
 impl ConfigBitFlags {
@@ -75,7 +79,7 @@ impl<I2C, D, E> Hdc1080<I2C, D> where
     D: DelayMs<u16>,
 {
     /// New HDC1080 device from an I2C peripheral.
-    /// temperature 11bit humidity 11b
+    /// default: temperature 11-bit humidity 11-b
     pub fn new(i2c: I2C, delay: D ) -> Result<Self, Error<E>> {
         let dev = Self {
             i2c: i2c,
