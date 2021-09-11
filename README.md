@@ -1,6 +1,9 @@
 # hdc1080-embedded-rs - Driver for sensor temperature and humidity
 
 
+Made on the model of a crate for [HDC20xx](https://github.com/eldruin/hdc20xx-rs)
+
+
 [HDC1080 referenc](https://www.ti.com/lit/ds/symlink/hdc1080.pdf)
 
 Designed for use with [`embedded-hal`]
